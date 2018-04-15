@@ -14,11 +14,11 @@ const WeatherData = ({ data }) => {
 };
 
 WeatherData.propTypes = {
-	data : PropTypes.shape({
-		temp: PropTypes.number.isRequired,
-		weatherState: PropTypes.string.isRequired,
-		humidity: PropTypes.number.isRequired,
-		wind: PropTypes.number.isRequired  
+		data : PropTypes.shape({
+			temp: PropTypes.number.isRequired,
+			weatherState: PropTypes.string.isRequired,
+			humidity: PropTypes.number.isRequired,
+			wind: PropTypes.number.isRequired  
 	})
 }
 

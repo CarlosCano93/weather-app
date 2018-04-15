@@ -1,7 +1,10 @@
 .weatherLocationCont {
 	margin: 20px;
-	cursor: pointer;
 	-min-width: 378px;	
+}
+
+.weatherLocationCard {
+	cursor: pointer;
 }
 
 .locationCont {

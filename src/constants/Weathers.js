@@ -1,4 +1,6 @@
 export const KEY = 'b9116fe3891698f5d0340219da8e97a1';
+export const URL_WEATHER = 'http://api.openweathermap.org/data/2.5/weather';
+export const URL_FORECAST = 'http://api.openweathermap.org/data/2.5/forecast';
 
 export const CLEAR_DAY = 'CLEAR_DAY';
 export const CLEAR_NIGHT = 'CLEAR_NIGHT';

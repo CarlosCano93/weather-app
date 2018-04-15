@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import Location from './Location';
 import WeatherData from './WeatherData';
-import { CircularProgress } from 'material-ui/Progress';
+import { LinearProgress  } from 'material-ui/Progress';	
 import TransformWeather from '../../services/TransformWeather';
 import Card, { CardContent } from 'material-ui/Card';
 import PropTypes from 'prop-types';
-import { KEY } from '../../constants/Weathers';
+import { KEY, URL_WEATHER } from '../../constants/Weathers';
 import './styles.css';
 import 'material-ui/styles';
 
-const url = 'http://api.openweathermap.org/data/2.5/weather';
 
 
 class WeatherLocation extends Component { 
@@ -25,7 +24,7 @@ class WeatherLocation extends Component {
 
 	componentWillMount() {
 		const { idCity } = this.state; 
-		const api_weather = `${url}?id=${idCity}&appid=${KEY}`;
+		const api_weather = `${URL_WEATHER}?id=${idCity}&appid=${KEY}`;
 
 		fetch(api_weather).then( response => {
 		return response.json();
@@ -41,14 +40,16 @@ class WeatherLocation extends Component {
 		const { onWeatherLocationClick } = this.props;
 		const { city, data } = this.state;
 		return (
-			<div className='weatherLocationCont'>
-				<Card>
+			<div className='weatherLocationCont' onClick={onWeatherLocationClick}>
+				<Card className='weatherLocationCard'>
 					<CardContent>
-						<div onClick={onWeatherLocationClick} >
-							{ city ? <Location city={city}/> : null }
-							{ data ? <WeatherData data={data} /> 
-								: <CircularProgress className='progress' size={70}/>}
-						</div>		
+						{city && data ?
+							<div>
+								<Location city={city}/>
+								<WeatherData data={data} /> 	
+							</div>
+							: <LinearProgress/>
+						}
 					</CardContent>
 				</Card>
 			</div>
