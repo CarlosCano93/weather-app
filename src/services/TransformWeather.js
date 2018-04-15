@@ -3,7 +3,6 @@ import {/* WEATHER_DEFAULTS, */CLEAR_NIGHT, CLEAR_DAY, PARTLY_CLOUDY_DAY,/* PART
 
 		
 const convertWeatherState = weatherState => {
-	//console.log('TransformWeather.convertWeatherState: ' + weatherState);
 	switch(weatherState) {
 		case 'Clouds': 
 			return CLOUDY; 

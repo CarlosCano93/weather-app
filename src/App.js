@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import LocationList from './component/LocationList';
 import ForecastExtended from './component/ForecastExtended';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
 import CssBaseline from 'material-ui/CssBaseline';
 //import 'material-ui/styles';
 import './App.css';
@@ -19,7 +16,6 @@ class App extends Component {
 	}
 
 	handleSelectionLocation = city => {
-		console.log(`handleSelectionLocation ${city}` );
 		this.setState({ city });
 	}
 
@@ -30,15 +26,6 @@ class App extends Component {
 			<div>
 				<CssBaseline />
 				<Grid /*fluid*/>
-					<Row>
-						<Col xs={12}>
-							<AppBar position="static" color="default">
-								<Toolbar>
-									<Typography variant="title">Weather App</Typography>
-								</Toolbar>
-							</AppBar>
-						</Col>
-					</Row>
 					<Row>
 						<Col xs={12} lg={6}>
 							<a href='#detail'><LocationList cities={cities} onSelectedLocation={this.handleSelectionLocation} /></a>

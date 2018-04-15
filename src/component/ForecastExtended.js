@@ -40,7 +40,7 @@ class ForecastExtended extends Component {
 	}
 
 	renderForecastItemDays (forecastData) {
-		return forecastData.map(forecast => ( //FIXME los objetos no tienen map (solo array)
+		return forecastData.map(forecast => (
 		 	<ForecastItem weekDay={forecast.weekDay} hour={forecast.hour} data={forecast.data} key={`${forecast.city}${forecast.weekDay}${forecast.hour}`} /> 
 		))
 	}
