@@ -62,8 +62,6 @@ class ForecastExtended extends Component {
 }
 
 ForecastExtended.propTypes = {
-	weekDay : PropTypes.string.isRequired,
-	hour : PropTypes.number.isRequired,
 	data : PropTypes.shape({
 		temp: PropTypes.number.isRequired,
 		weatherState: PropTypes.string.isRequired,

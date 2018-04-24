@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import LocationList from './component/LocationList';
-import ForecastExtended from './component/ForecastExtended';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import CssBaseline from 'material-ui/CssBaseline';
-//import 'material-ui/styles';
+import LocationListContainer from './container/LocationListContainer';
+import ForecastExtended from './component/ForecastExtended';
 import './App.css';
 
+//Tudela, Barcelona, Madrid, Sevilla
 const cities = [3107418, 3128760, 3117735, 6361046];
 
 class App extends Component {
@@ -13,10 +13,6 @@ class App extends Component {
 	constructor () {
 		super();
 		this.state = { city: null }
-	}
-
-	handleSelectionLocation = city => {
-		this.setState({ city });
 	}
 
 	render() {
@@ -28,7 +24,7 @@ class App extends Component {
 				<Grid /*fluid*/>
 					<Row>
 						<Col xs={12} lg={6}>
-							<a href='#detail'><LocationList cities={cities} onSelectedLocation={this.handleSelectionLocation} /></a>
+							<LocationListContainer cities={cities} />
 						</Col>
 						<Col xs={12} lg={6}>
 								{ city && <ForecastExtended city={ city } /> }
@@ -41,3 +37,4 @@ class App extends Component {
 }
 
 export default App;
+
