@@ -5,6 +5,10 @@ import { setSelectedCity, setWeather } from './../actions';
 import LocationList from './../component/LocationList';
 
 class LocationListContainer extends React.Component {
+
+  componentDidMount() {
+    this.props.setWeather(this.props.cities);
+  }
   
   handleSelectionLocation = city => {
 		this.props.setCity(city);

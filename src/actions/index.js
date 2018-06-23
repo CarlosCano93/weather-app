@@ -4,9 +4,14 @@ import { KEY, URL_FORECAST, URL_WEATHER } from '../constants/Weathers';
 
 export const SET_CITY = 'setCity';
 export const SET_FORECAST_DATA = 'setForecastData';
+export const SET_WEATHER_CITY = 'SET_WEATHER_CITY';
+export const GET_WEATHER_CITY = 'GET_WEATHER_CITY';
 
 const setCity = payload => ({type: SET_CITY, payload });
 const setForecastData = payload => ({type: SET_FORECAST_DATA, payload });
+
+const getWeatherCity = payload => ({type: GET_WEATHER_CITY, payload});
+const setWeatherCity = payload => ({type: SET_WEATHER_CITY, payload});
 
 export const setSelectedCity = payload => {
 
@@ -30,16 +35,18 @@ export const setSelectedCity = payload => {
 export const setWeather = payload => {
 
   return dispatch => {
-    const { idCity } = this.state; 
-    const api_weather = `${URL_WEATHER}?id=${idCity}&appid=${KEY}`;
+    payload.forEach(city => {
 
-    fetch(api_weather).then( response => {
-    return response.json();
-    }).then( responseJson => {
-      const data = TransformWeather(responseJson);
-      this.setState({ 
-        city: responseJson.name,
-        data });
+      dispatch(getWeatherCity(city));
+
+      const api_weather = `${URL_WEATHER}?id=${city}&appid=${KEY}`;
+      fetch(api_weather).then( response => {
+      return response.json();
+      }).then( responseJson => {
+        const data = TransformWeather(responseJson);
+
+        dispatch(setWeatherCity(city));
+      });
     });
   }
 }
